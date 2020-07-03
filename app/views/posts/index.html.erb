@@ -10,7 +10,7 @@
   <tbody>
     <% @posts.each.with_index(1) do |post, i| %>
       <tr>
-        <td scope="row"><%= i %></td>
+        <td scope="row"><%= i %>--<%= post.id %></td>
         <td><%= post.title %></td>
         <td>
           <%= link_to "詳細", post %>
