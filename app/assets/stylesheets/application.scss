@@ -27,9 +27,13 @@
  }
 
  .field_with_errors input {
-  border: 2px solid red;
+  @extend .is-invalid;
+
  }
 
+ .field_with_errors textarea {
+  @extend .is-invalid;
+ }
  .base-container {
   @extend .container-fluid;
   max-width: var(--breakpoint-lg);
@@ -56,3 +60,5 @@ td {
 .alert-alert {
   @extend .alert-danger;
 }
+
+
