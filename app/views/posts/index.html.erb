@@ -1,21 +1,30 @@
 <h1>投稿一覧</h1>
-<table>
+<table class="table table-bordered table-striped mt-4">
   <thread>
     <tr>
       <th scope="col">No.</th>
-      <th scope="col">タイトル</th>
+      <th scope="col" class="w-30">タイトル</th>
       <th scope="col"></th>
     </tr>
   </thread>
   <tbody>
     <% @posts.each.with_index(1) do |post, i| %>
       <tr>
-        <td scope="row"><%= i %>--<%= post.id %></td>
-        <td><%= post.title %></td>
-        <td>
-          <%= link_to "詳細", post %>
-          <%= link_to "編集", edit_post_path(post) %>
-          <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか？" } %>
+        <td scope="row" class="text-right"><%= i %>--<%= post.id %></td>
+        <td class="break-word"><%= post.title %></td>
+        <td class="break-word">
+          <% 2.times do %>
+            <%= link_to post do %>
+              <span class="d-none d-md-inline"><i class="fas fa-envelope-open-text"></i></span> 詳細
+            <% end %>
+          <% end %>
+          <%= link_to edit_post_path(post), class: "btn btn-success" do %>
+            <span class="d-none d-md-inline"><i class="far fa-edit"></i>編集</span>
+            <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+          <% end %>
+          <%= link_to post, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" do %>
+            <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+          <% end %>
         </td>
       </tr>
     <% end %>
