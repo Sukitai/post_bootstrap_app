@@ -1,5 +1,15 @@
-<h1>投稿詳細</h1>
-<p><%= @post.title %></p>
-<p><%= @post.content %></p>
-<%= %i[show edit update destroy] %>
-<p><%= @post.id %></p>
+<h1 class="text-center">投稿詳細</h1>
+<section class="card border-dark mt-5">
+  <div class="card-header">
+    <h4><%= @post.title %></h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @post.content %></p>
+    <p>シンプルフォーム h あり</p>
+    <p class="card-text"><%= simple_format(h @post.content) %></p>
+    <p>シンプルフォーム h なし</p>
+    <p class="card-text"><%= simple_format(@post.content) %></p>
+  </div>
+    <%= %i[show edit update destroy] %>
+    <p><%= @post.id %></p>
+</section>
